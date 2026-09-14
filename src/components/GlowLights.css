@@ -1,0 +1,42 @@
+.glow-lights {
+  position: absolute;
+  inset: 0;
+  overflow: hidden;
+  pointer-events: none;
+  z-index: -1;
+}
+
+.glow-lights__light {
+  position: absolute;
+  border-radius: 50%;
+  filter: blur(90px);
+  opacity: 0.35;
+  animation: glow-float ease-in-out infinite alternate;
+  will-change: transform;
+}
+
+.glow-lights__light--1 {
+  background: radial-gradient(circle, #35c44b 0%, transparent 70%);
+}
+
+.glow-lights__light--2 {
+  background: radial-gradient(circle, #0a8f2a 0%, transparent 70%);
+}
+
+.glow-lights__light--3 {
+  background: radial-gradient(circle, #7dff9b 0%, transparent 70%);
+}
+
+.glow-lights__light--4 {
+  background: radial-gradient(circle, #128a3a 0%, transparent 70%);
+}
+
+@keyframes glow-float {
+  from {
+    transform: translate(0, 0) scale(1);
+  }
+
+  to {
+    transform: translate(60px, -45px) scale(1.15);
+  }
+}

@@ -1,0 +1,7 @@
+.page {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  background-color: var(--color-surface);
+  
+}

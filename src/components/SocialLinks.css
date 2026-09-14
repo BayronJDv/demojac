@@ -1,0 +1,14 @@
+.social-links {
+  display: flex;
+  align-items: center;
+  gap: 0.9rem;
+}
+
+.social-links__item {
+  display: inline-flex;
+  transition: opacity 0.2s ease;
+}
+
+.social-links__item:hover {
+  opacity: 0.7;
+}
