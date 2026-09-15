@@ -1,31 +1,20 @@
-import { useState } from 'react'
-import Navbar from './components/Navbar'
-import Hero from './components/Hero'
-import Categories from './components/Categories'
-import GlowLights from './components/GlowLights'
-import Afiliacion from './components/Afiliacion'
+import { Routes, Route } from 'react-router-dom'
+import HomePage from './pages/HomePage/Homepage.jsx'
+import FeedPage from './pages/FeedPage/FeedPage.jsx'
 
-import './App.css'
-
-function App() {
-  const [vista, setVista] = useState('inicio') // inicio | afiliacion
-
+export default function App() {
   return (
-    <>
-      <Navbar onAfiliacion={() => setVista('afiliacion')} />
-      <main className="page">
-        <GlowLights />
-        {vista === 'afiliacion' ? (
-          <Afiliacion key="afiliacion" />
-        ) : (
-          <>
-            <Hero />
-            <Categories />
-          </>
-        )}
-      </main>
-    </>
+    <Routes>
+      <Route path="/" element={<HomePage />} />
+      <Route path="/Descubre" element={<FeedPage />} />
+      <Route
+        path="*"
+        element={
+          <div className="h-screen flex items-center justify-center bg-charcoal-950 text-cream font-body">
+            <p>Página no encontrada.</p>
+          </div>
+        }
+      />
+    </Routes>
   )
 }
-
-export default App

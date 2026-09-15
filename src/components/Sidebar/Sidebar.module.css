@@ -1,0 +1,121 @@
+.sidebar {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-6);
+}
+
+.marca {
+  display: inline-block;
+}
+
+.logo {
+  width: 180px;
+  height: auto;
+}
+
+.nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-2);
+}
+
+.navLink {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+  padding: 10px 12px;
+  margin-left: -12px;
+  border-radius: var(--radio-md);
+  color: var(--texto);
+  font-size: 1rem;
+  transition: background-color 0.15s ease, color 0.15s ease;
+}
+
+.navLink:hover {
+  background-color: var(--verde-claro);
+  color: var(--verde-bosque);
+}
+
+.navLink[aria-current='page'] {
+  color: var(--verde-bosque);
+  font-weight: 600;
+}
+
+.redes {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-5);
+  padding-left: var(--espacio-5);
+}
+
+.redLink {
+  color: var(--texto-suave);
+  transition: color 0.15s ease;
+}
+
+.redLink:hover {
+  color: var(--verde-bosque);
+}
+
+.headerMovil,
+.cerrar,
+.overlay {
+  display: none;
+}
+
+/* ---------- Móvil y tablet: el menú vive fuera de pantalla ---------- */
+@media (max-width: 899px) {
+  .overlay {
+    display: block;
+    position: fixed;
+    inset: 0;
+    background-color: rgba(12, 28, 18, 0.45);
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.25s ease;
+    z-index: 40;
+  }
+
+  .overlayVisible {
+    opacity: 1;
+    pointer-events: auto;
+  }
+
+  .sidebar {
+    position: fixed;
+    inset: 0 auto 0 0;
+    width: min(82vw, 320px);
+    padding: var(--espacio-5);
+    background-color: var(--superficie);
+    box-shadow: var(--sombra-card);
+    transform: translateX(-100%);
+    transition: transform 0.25s ease;
+    overflow-y: auto;
+    z-index: 50;
+  }
+
+  .sidebarOpen {
+    transform: translateX(0);
+  }
+
+  .headerMovil {
+    display: flex;
+    justify-content: flex-end;
+  }
+
+  .cerrar {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    width: 40px;
+    height: 40px;
+    border: 1px solid var(--borde);
+    border-radius: var(--radio-md);
+    background-color: transparent;
+  }
+
+  .redes {
+    padding-left: 0;
+    gap: var(--espacio-4);
+  }
+}

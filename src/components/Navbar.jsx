@@ -4,7 +4,7 @@ import './Navbar.css'
 
 const NAV_LINKS = [
   { label: 'Inicio', href: '#inicio' },
-  { label: 'Nosotros', href: '#nosotros' },
+  { label: 'Conocenos', href: '/Descubre' },
   { label: 'Actividades', href: '#actividades' },
   { label: 'Contacto', href: '#contacto' },
 ]

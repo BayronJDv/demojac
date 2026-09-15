@@ -1,0 +1,90 @@
+.app {
+  display: flex;
+  flex-direction: column;
+  min-height: 100%;
+}
+
+.pagina {
+  display: grid;
+  grid-template-columns:
+    minmax(var(--sidebar-ancho), max-content)
+    minmax(0, 1fr)
+    minmax(var(--lateral-derecho-ancho, 320px), max-content);
+  grid-template-areas:
+    'aside  feed    busqueda'
+    'aside  feed    carrusel'
+    'filtro feed    carrusel';
+  align-items: start;
+  column-gap: var(--espacio-7);
+  row-gap: var(--espacio-7);
+  width: 100%;
+  max-width: none;
+  margin: 0;
+  padding: var(--espacio-6) var(--espacio-6) var(--espacio-8);
+  flex: 1;
+}
+
+.areaAside {
+  grid-area: aside;
+}
+
+.areaFiltro {
+  grid-area: filtro;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-7);
+}
+
+.areaFeed {
+  grid-area: feed;
+  min-width: 0; /* evita overflow por contenido largo */
+}
+
+.areaBusqueda {
+  grid-area: busqueda;
+}
+
+.areaCarrusel {
+  grid-area: carrusel;
+}
+
+.columnaDerecha{
+  max-width: 25vw;
+}
+
+.columnaIzquierda{
+  padding-right: var(--espacio-7);
+}
+
+.contador {
+  font-size: 0.8rem;
+  font-weight: 600;
+  text-align: center;
+  color: var(--texto);
+}
+
+/* ---------- Móvil (<900px): una sola columna ---------- */
+@media (max-width: 1199px) {
+  .pagina {
+    grid-template-columns: minmax(0, 1fr);
+    grid-template-areas:
+      'busqueda'
+      'filtro'
+      'carrusel'
+      'feed';
+    gap: var(--espacio-5);
+    padding: var(--espacio-5) var(--espacio-5) var(--espacio-7);
+  }
+
+  .areaAside {
+    display: contents;
+  }
+
+  .areaFiltro {
+    gap: var(--espacio-4);
+  }
+
+  .contador {
+    text-align: left;
+  }
+}

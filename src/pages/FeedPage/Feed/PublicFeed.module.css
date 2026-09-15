@@ -1,0 +1,13 @@
+.contenedorFeed {
+  height: 94vh;
+  width: auto;
+  margin: 0 auto;
+  overflow-y: scroll;
+  scroll-snap-type: y mandatory;
+  background-color: #fff;
+  scrollbar-width: none;
+}
+
+.contenedorFeed::-webkit-scrollbar {
+  display: none;
+}
