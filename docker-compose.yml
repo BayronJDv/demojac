@@ -1,0 +1,42 @@
+services:
+  rustfs:
+    image: rustfs/rustfs:latest
+    container_name: rustfs
+    restart: unless-stopped
+    ports:
+      - "9000:9000"
+      - "9001:9001"
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:-rustfsadmin}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:-rustfsadmin}
+      RUSTFS_ADDRESS: ":9000"
+      RUSTFS_CONSOLE_ADDRESS: ":9001"
+      RUSTFS_CONSOLE_ENABLE: "true"
+    volumes:
+      - ./rustfs-data:/data
+    command: /data
+
+  rustfs-init:
+    image: rustfs/rc:latest
+    container_name: rustfs-init
+    depends_on:
+      - rustfs
+    volumes:
+      - ./cors.json:/cors.json:ro
+    environment:
+      RUSTFS_ACCESS_KEY: ${RUSTFS_ACCESS_KEY:-rustfsadmin}
+      RUSTFS_SECRET_KEY: ${RUSTFS_SECRET_KEY:-rustfsadmin}
+    entrypoint: >
+      /bin/sh -c "
+      rc alias set local http://rustfs:9000 $${RUSTFS_ACCESS_KEY:-rustfsadmin} $${RUSTFS_SECRET_KEY:-rustfsadmin};
+      until rc ready local; do echo 'esperando a rustfs...'; sleep 2; done;
+      rc mb local/jac-ingenio || true;
+      rc bucket cors set local/jac-ingenio --file /cors.json;
+      rc anonymous set public local/jac-ingenio;
+      echo 'Bucket listo';
+      exit 0;
+      "
+
+volumes:
+  rustfs-data:
+  rustfs-logs:
