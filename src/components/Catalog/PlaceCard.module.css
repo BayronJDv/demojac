@@ -1,0 +1,83 @@
+.tarjeta {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: var(--espacio-4);
+  padding: var(--espacio-5);
+  background-color: var(--superficie);
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-card);
+}
+
+
+.categoria {
+  position: absolute;
+  top: 14px;
+  right: var(--espacio-5);
+  padding: 4px 14px;
+  font-size: 0.8rem;
+  color: var(--verde-bosque);
+  background-color: var(--verde-badge);
+  border-radius: 999px;
+}
+
+.encabezado {
+  padding-top: 14px;
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+}
+
+.logo {
+  width: 48px;
+  height: 48px;
+  object-fit: contain;
+  border-radius: 50%;
+}
+
+.nombre {
+  font-size: 1.35rem;
+  font-weight: 700;
+  line-height: 1.2;
+}
+
+.descripcion {
+  max-width: 62ch;
+  font-size: 0.9rem;
+  color: var(--texto-suave);
+}
+
+.pie {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  gap: var(--espacio-4);
+  flex-wrap: wrap;
+}
+
+.ubicacion {
+  display: inline-flex;
+  align-items: center;
+  gap: var(--espacio-2);
+  font-size: 0.9rem;
+  color: var(--texto);
+}
+
+.ubicacion:hover {
+  color: var(--verde-bosque);
+}
+
+.redes {
+  display: flex;
+  align-items: center;
+  gap: var(--espacio-4);
+}
+
+.redLink {
+  color: var(--texto-suave);
+  transition: color 0.15s ease;
+}
+
+.redLink:hover {
+  color: var(--verde-bosque);
+}

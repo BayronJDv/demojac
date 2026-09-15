@@ -1,0 +1,70 @@
+.tarjetaVideo {
+  position: relative;
+  height: 100%;
+  width: auto;
+  scroll-snap-align: start;
+  scroll-snap-stop: always;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  background-color: #fff;
+  overflow: hidden;
+}
+
+.videoPlayer,
+.iframePlayer {
+  height: 100%;
+  width: auto;
+  max-width: 100%;
+  object-fit: contain;
+  background-color: #fff;
+  border:none;
+  display: block;
+  border-radius: var(--radio-lg);
+  box-shadow: var(--sombra-card);
+}
+
+.overlayInfo {
+  pointer-events: none;
+  position: absolute;
+  bottom: var(--espacio-7);
+  left: 0;
+  right: 0;
+  display: flex;
+  justify-content: center;
+  z-index: 10;
+}
+
+.badgeRestaurante {
+  pointer-events: auto;
+  background-color: rgba(22, 32, 26, 0.85);
+  color: var(--texto-inverso);
+  border: 1px solid rgba(255, 255, 255, 0.15);
+  backdrop-filter: blur(8px);
+  padding: var(--espacio-2) var(--espacio-4);
+  border-radius: 9999px;
+  font-size: 0.875rem;
+  font-weight: 600;
+  letter-spacing: -0.01em;
+  box-shadow: var(--sombra-card);
+}
+
+.errorState {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: var(--espacio-2);
+  padding: var(--espacio-6);
+  text-align: center;
+  color: var(--texto-inverso-suave);
+}
+
+.errorTitulo {
+  color: var(--rojo-marca);
+  font-weight: 700;
+  font-size: 1.125rem;
+}
+
+.errorTexto {
+  font-size: 0.875rem;
+}
